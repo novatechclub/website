@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as m from '$lib/paraglide/messages.js';
 	import { formatDate } from '$lib/tools';
-	import * as Card from '$lib/components/ui/Card';
+	import * as Card from "$lib/components/ui/card/index.js";	
 	import { Button } from '$lib/components/ui/button';
 	import { Input } from '$lib/components/ui/input';
 	import { Badge } from '$lib/components/ui/badge/index.js';

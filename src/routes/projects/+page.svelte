@@ -2,7 +2,7 @@
 	import * as m from '$lib/paraglide/messages.js';
 	import HoverMember from '$lib/ui/HoverMember.svelte';
 
-	import * as Card from '$lib/components/ui/card';
+	import * as Card from "$lib/components/ui/card/index.js";
 	import { Button } from '$lib/components/ui/button';
 	import { Input } from '$lib/components/ui/input';
 

@@ -3,7 +3,7 @@
 	import { formatDate, getImageURL, getInitials } from '$lib/tools';
 
 	import { Button } from '$lib/components/ui/button';
-	import * as Card from '$lib/components/ui/Card';
+	import * as Card from "$lib/components/ui/card/index.js";
 	import { Badge } from '$lib/components/ui/badge';
 	import { Separator } from '$lib/components/ui/separator';
 	import * as Avatar from '$lib/components/ui/avatar';

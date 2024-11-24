@@ -2,7 +2,7 @@
 	import * as m from '$lib/paraglide/messages.js';
 	import { scrollToAnchor, formatDate } from '$lib/tools';
 	import { Button } from '$lib/components/ui/button';
-	import * as Card from '$lib/components/ui/card';
+	import * as Card from "$lib/components/ui/card/index.js";
 
 	import ArrowRight from 'lucide-svelte/icons/arrow-right';
 	import Calendar from 'lucide-svelte/icons/calendar';

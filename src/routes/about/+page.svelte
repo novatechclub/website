@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as m from '$lib/paraglide/messages.js';
 
-	import * as Card from '$lib/components/ui/card';
+	import * as Card from "$lib/components/ui/card/index.js";
 	import { Button } from '$lib/components/ui/button';
 
 	import Calendar from 'lucide-svelte/icons/calendar';

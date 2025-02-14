@@ -1,7 +1,6 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
 	"hello_world": "Hello, {name} from en!",
-
 	"home": "Homepage",
 	"about": "About",
 	"projects": "Projects",
@@ -11,9 +10,7 @@
 	"language": "Language",
 	"search_engine": "Search Engine",
 	"advanced_search": "Advanced Search",
-
 	"copyright": "Nova Tech Club. All rights reserved.",
-
 	"hero_title": "Innovate. Create. Inspire.",
 	"hero_description": "Join Nova Tech Club and shape the future of technology.",
 	"hero_button": "Get Started",
@@ -31,13 +28,11 @@
 	"articles_more_button": "See More Articles",
 	"articles_by": "By",
 	"articles_on": "on",
-
 	"about_title": "About Us",
 	"about_description": "Nova Tech Club is a community of passionate tech enthusiasts dedicated to pushing the boundaries of innovation. Our diverse departments work together to create a dynamic and inspiring environment for all members.",
 	"about_joinus_title": "Join Our Whatsapp Community",
 	"about_joinus_description": "Become a part of the Nova Tech Club and get tuned to hear the latest news.",
 	"about_joinus_button": "Join Group",
-
 	"projects_title": "Our Projects",
 	"projects_description": "At Nova Tech Club, we bring our mission and vision to life by diving into cutting-edge projects that explore the forefront of technology. From cryptocurrencies and machine learning to sentiment analysis and automated model development, our members are working to solve real-world challenges while bridging the gap between academia and industry.",
 	"project_status": "Status",
@@ -46,7 +41,6 @@
 	"projects_cta_title": "Get Involved",
 	"projects_cta_description": "Interested in contributing to one of our projects or starting your own? Join Nova Tech Club and turn your ideas into reality!",
 	"projects_cta_button": "Join a Project",
-
 	"articles_title": "Research Articles",
 	"articles_description": "Nova Tech Club bridges the gap between students, the tech world, and the industry by sharing insights on technology and innovation. Our articles feature the latest advancements and provide opportunities for learning and collaboration.",
 	"articles_input_placeholder": "Search articles...",
@@ -55,15 +49,13 @@
 	"articles_cta_title": "Contribute to Our Research",
 	"articles_cta_description": "Have a groundbreaking idea, research project, or a topic you’d like to explore? Collaborate with Nova Tech Club to turn your vision into reality. Whether you want to share findings or propose new areas of research, we’re here to support innovation and creativity. \nClick below to submit your research or suggest a topic you’re passionate about:",
 	"articles_cta_button": "Submit Your Research",
-
-	"events_title": "Upcoming Events",
+	"events_title": "Our Events",
 	"events_description": "Join us for exciting tech events, hands-on workshops, and networking opportunities with leading industry professionals and corporate partners! Explore innovative trends, gain insights from experts, and connect with like-minded tech enthusiasts.",
 	"events_input_placeholder": "Search events...",
 	"events_capacity": "Capacity",
 	"events_cta_title": "Suggest an Event",
 	"events_cta_description": "Have an idea for an exciting tech event, workshop, or panel discussion? Whether it's an engaging seminar, a hands-on hackathon, or a networking session with industry leaders, we’d love to bring your vision to life! \nClick below to share your idea and collaborate with us to make it happen:",
 	"events_cta_button": "Submit Event Proposal",
-
 	"contacts_title": "Contact Us",
 	"contacts_form_title": "Get in Touch",
 	"contacts_form_name_placeholder": "Your Name",
@@ -74,16 +66,13 @@
 	"contacts_info_title": "Contact Information",
 	"contacts_social_media": "Social Media",
 	"contacts_address": "Address",
-
 	"event_about": "About the Event",
 	"event_speakers": "Speakers",
 	"event_details": "Event Details",
 	"event_capacity": "Capacity",
 	"event_attendees": "attendees",
 	"event_back": "Back to Events",
-
 	"article_back": "Back to Articles",
-
 	"project_overview": "Project Overview",
 	"project_progress": "Progress",
 	"project_start": "Start",
@@ -92,12 +81,10 @@
 	"project_updates": "Recent Updates",
 	"project_tech": "Technologies",
 	"project_qa": "Quick Actions",
-	"project_qa_contact": "Schedule Meeting",
+	"project_qa_contact": "Join us for this project",
 	"project_qa_repo": "View Repository",
 	"project_back": "Back to Projects",
-
 	"load_error": "There was an error",
-
 	"dep_tech": "Technology and Innovation",
 	"dep_tech_desc": "Driving innovation in software and AI through hands-on projects, fostering continuous skills enhancement.",
 	"dep_events": "Events and Operations",
@@ -108,31 +95,26 @@
 	"dep_research_desc": "Research and share insights on the latest tech trends and emerging technologies,  promoting knowledge within the community.",
 	"dep_sales": "Sales and Relations",
 	"dep_sales_desc": "Extend the club’s impact by forming partnerships, raising sponsorships and fostering collaboration with key players in the tech industry.",
-
 	"search_title": "Articles Search Engine",
 	"search_placeholder": "Search...",
 	"search_advanced_alternative": "Or try our",
 	"search_redirect": "article search engine",
 	"search_advanced_redirect": "advanced article search",
-	"no_results_found" : "No results found",
-	"searching" :"Searching...",
+	"no_results_found": "No results found",
+	"searching": "Searching...",
 	"min_characters": "Please enter at least {minLength} characters to search.",
-
-
-	"advanced_title" : "Advanced Articles Search Filter",
+	"advanced_title": "Advanced Articles Search Filter",
 	"author": "Author",
 	"authors": "Authors",
 	"authors_select": "Select an author",
-	"search_button":"Search",
+	"search_button": "Search",
 	"search_sortby": "Sort by",
-	"newest" : "Newest",
-	"oldest" : "Oldest",
+	"newest": "Newest",
+	"oldest": "Oldest",
 	"title": "Title",
-	"abstract":"Abstract",
-	"tags":"Tags",
-	"views":"Views",
+	"abstract": "Abstract",
+	"tags": "Tags",
+	"views": "Views",
 	"previous": "Previous",
 	"next": "Next"
-
-
 }

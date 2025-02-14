@@ -2,7 +2,7 @@
 	import * as m from '$lib/paraglide/messages.js';
 	import { scrollToAnchor, formatDate } from '$lib/tools';
 	import { Button } from '$lib/components/ui/button';
-	import * as Card from "$lib/components/ui/card/index.js";
+	import * as Card from '$lib/components/ui/card/index.js';
 
 	import ArrowRight from 'lucide-svelte/icons/arrow-right';
 	import Calendar from 'lucide-svelte/icons/calendar';
@@ -10,7 +10,6 @@
 	import MapPin from 'lucide-svelte/icons/map-pin';
 
 	import HeroImage from '$lib/assets/placeholder.png?enhanced';
-
 
 	let { data } = $props();
 </script>
@@ -29,43 +28,49 @@
 		</div>
 	</section>
 
-	<section class="py-16" id="events">
-		<h2 class="mb-8 text-center text-3xl font-bold">{m.upcoming_events()}</h2>
-		{#await data.events}
-		<div class="flex w-full justify-center ">
-			<LoaderCircle class="animate-spin" />
-			</div>
-		{:then events}
-			<div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-				{#each events.items as event}
-					<Card.Root>
-						<Card.Header>
-							<Card.Title>{event.title}</Card.Title>
-							<Card.Description>
-								<Calendar class="mr-2 inline-block h-4 w-4" />
-								{formatDate(event.date)}
-								|
-								{event.time}</Card.Description
-							>
-						</Card.Header>
-						<Card.Content>
-							<div class="mt-1 flex items-center">
-								<MapPin class="mr-2 h-4 w-4" />
-								{event.location}
-							</div>
-						</Card.Content>
-						<Card.Footer>
-							<Button variant="outline" href="/events/{event.id}">{m.event_button()}</Button>
-						</Card.Footer>
-					</Card.Root>
-				{/each}
-			</div>
-		{/await}
+	{#await data.events}
+		<section class="py-16" id="events">
+			<h2 class="mb-8 text-center text-3xl font-bold">{m.upcoming_events()}</h2>
 
-		<div class="text-center">
-			<Button variant="outline" class="mt-4" href="/events">{m.events_more_button()}</Button>
-		</div>
-	</section>
+			<div class="flex w-full justify-center">
+				<LoaderCircle class="animate-spin" />
+			</div>
+		</section>
+	{:then events}
+		{#if events.items.length > 0}
+			<section class="py-16" id="events">
+				<h2 class="mb-8 text-center text-3xl font-bold">{m.upcoming_events()}</h2>
+
+				<div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+					{#each events.items as event}
+						<Card.Root>
+							<Card.Header>
+								<Card.Title>{event.title}</Card.Title>
+								<Card.Description>
+									<Calendar class="mr-2 inline-block h-4 w-4" />
+									{formatDate(event.date)}
+									|
+									{event.time}</Card.Description
+								>
+							</Card.Header>
+							<Card.Content>
+								<div class="mt-1 flex items-center">
+									<MapPin class="mr-2 h-4 w-4" />
+									{event.location}
+								</div>
+							</Card.Content>
+							<Card.Footer>
+								<Button variant="outline" href="/events/{event.id}">{m.event_button()}</Button>
+							</Card.Footer>
+						</Card.Root>
+					{/each}
+				</div>
+				<div class="text-center">
+					<Button variant="outline" class="mt-4" href="/events">{m.events_more_button()}</Button>
+				</div>
+			</section>
+		{/if}
+	{/await}
 
 	<section class="my-16 rounded-lg bg-secondary py-20 text-center" id="cta">
 		<div class="mx-auto max-w-3xl">
@@ -77,68 +82,87 @@
 		</div>
 	</section>
 
-	<section class="py-16">
-		<h2 class="mb-8 text-center text-3xl font-bold">{m.our_projects()}</h2>
+	{#await data.projects}
+		<section class="py-16">
+			<h2 class="mb-8 text-center text-3xl font-bold">{m.our_projects()}</h2>
 
-		{#await data.projects}
-		<div class="flex w-full justify-center ">
-			<LoaderCircle class="animate-spin" />
+			<div class="flex w-full justify-center">
+				<LoaderCircle class="animate-spin" />
 			</div>
-		{:then projects}
-			<div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-				{#each projects.items as project}
-					<Card.Root>
-						<Card.Header>
-							<Card.Title>{project.title}</Card.Title>
-							<Card.Description>{m.project_status()}: {project.status}</Card.Description>
-						</Card.Header>
-						<Card.Content>
-							<p>{project.description}</p>
-						</Card.Content>
-						<Card.Footer>
-							<Button variant="outline" href="/projects/{project.id}">{m.project_button()}</Button>
-						</Card.Footer>
-					</Card.Root>
-				{/each}
-			</div>
-		{/await}
-		<div class="text-center">
-			<Button variant="outline" class="mt-4" href="/projects">{m.projects_more_button()}</Button>
-		</div>
-	</section>
+		</section>
+	{:then projects}
+		{#if projects.items.length > 0}
+			<section class="py-16">
+				<h2 class="mb-8 text-center text-3xl font-bold">{m.our_projects()}</h2>
 
-	<section class="py-16">
-		<h2 class="mb-8 text-center text-3xl font-bold">{m.latest_articles()}</h2>
+				<div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+					{#each projects.items as project}
+						<Card.Root>
+							<Card.Header>
+								<Card.Title>{project.title}</Card.Title>
+								<Card.Description>{m.project_status()}: {project.status}</Card.Description>
+							</Card.Header>
+							<Card.Content>
+								<p>{project.description}</p>
+							</Card.Content>
+							<Card.Footer>
+								<Button variant="outline" href="/projects/{project.id}">{m.project_button()}</Button
+								>
+							</Card.Footer>
+						</Card.Root>
+					{/each}
+				</div>
 
-		{#await data.articles}
-		<div class="flex w-full justify-center ">
-			<LoaderCircle class="animate-spin" />
+				<div class="text-center">
+					<Button variant="outline" class="mt-4" href="/projects">{m.projects_more_button()}</Button
+					>
+				</div>
+			</section>
+		{/if}
+	{/await}
+
+	{#await data.articles}
+		<section class="py-16">
+			<h2 class="mb-8 text-center text-3xl font-bold">{m.latest_articles()}</h2>
+
+			<div class="flex w-full justify-center">
+				<LoaderCircle class="animate-spin" />
 			</div>
-		{:then articles}
-			<div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-				{#each articles.items as article}
-					<Card.Root>
-						<Card.Header>
-							<Card.Title>{article.title}</Card.Title>
-						</Card.Header>
-						<Card.Content>
-							<p class="mb-2 text-sm text-muted-foreground">
-								{m.articles_by()}
-								{article.expand?.author?.name}
-								{m.articles_on()}
-								{formatDate(article.date)}
-							</p>
-							<p>{article.abstract}</p>
-						</Card.Content>
-						<Card.Footer>
-							<Button variant="outline" href="/articles/{article.id}">{m.articles_button()}</Button>
-						</Card.Footer>
-					</Card.Root>
-				{/each}
-			</div>
-		{/await}
-		<div class="text-center">
-			<Button variant="outline" class="mt-4" href="/articles">{m.articles_more_button()}</Button>
-		</div>
-	</section>
+		</section>
+	{:then articles}
+		{#if articles.items.length > 0}
+			<section class="py-16">
+				<h2 class="mb-8 text-center text-3xl font-bold">{m.latest_articles()}</h2>
+
+				<div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+					{#each articles.items as article}
+						<Card.Root>
+							<Card.Header>
+								<Card.Title>{article.title}</Card.Title>
+							</Card.Header>
+							<Card.Content>
+								<p class="mb-2 text-sm text-muted-foreground">
+									{m.articles_by()}
+									{article.expand?.author?.name}
+									{m.articles_on()}
+									{formatDate(article.date)}
+								</p>
+								<p>{article.abstract}</p>
+							</Card.Content>
+							<Card.Footer>
+								<Button variant="outline" href="/articles/{article.id}"
+									>{m.articles_button()}</Button
+								>
+							</Card.Footer>
+						</Card.Root>
+					{/each}
+				</div>
+
+				<div class="text-center">
+					<Button variant="outline" class="mt-4" href="/articles">{m.articles_more_button()}</Button
+					>
+				</div>
+			</section>
+		{/if}
+	{/await}
 </main>

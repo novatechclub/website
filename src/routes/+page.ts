@@ -18,9 +18,13 @@ export function load() {
 		}
 	};
 
+	const currentDate = new Date()
+	const currentDay = currentDate.toISOString().substring(0,10)
+
 	const getEvents = async () => {
 		try {
 			const events = await pb.collection('events').getList(1, 3, {
+				filter: `date >= "${currentDay}" `,
 				sort: '-created',
 				expand: 'speakers'
 			});

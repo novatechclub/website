@@ -1,7 +1,6 @@
 {
     "$schema": "https://inlang.com/schema/inlang-message-format",
     "hello_world": "Olá, {name} de en!",
-
     "home": "Página Inicial",
     "about": "Sobre",
     "projects": "Projetos",
@@ -11,9 +10,7 @@
     "language": "Idioma",
     "search_engine": "Motor de Busca",
     "advanced_search": "Busca Avançada",
-
     "copyright": "Nova Tech Club. Todos os direitos reservados.",
-
     "hero_title": "Inovar. Criar. Inspirar.",
     "hero_description": "Junte-se ao Nova Tech Club e molde o futuro da tecnologia.",
     "hero_button": "Começar",
@@ -31,13 +28,11 @@
     "articles_more_button": "Ver Mais Artigos",
     "articles_by": "Por",
     "articles_on": "em",
-
     "about_title": "Sobre Nós",
     "about_description": "Nova Tech Club é uma comunidade de entusiastas de tecnologia dedicados a ultrapassar os limites da inovação. Nossos departamentos diversos trabalham juntos para criar um ambiente dinâmico e inspirador para todos os membros.",
     "about_joinus_title": "Junte-se à Nossa Comunidade",
     "about_joinus_description": "Seja parte do Nova Tech Club e contribua para moldar o futuro da tecnologia.",
     "about_joinus_button": "Participe",
-
     "projects_title": "Nossos Projetos",
     "projects_description": "No Nova Tech Club, tornamos nossa missão e visão em realidade mergulhando em projetos de ponta que exploram o limite da tecnologia. De criptomoedas e aprendizado de máquina à análise de sentimento e desenvolvimento de modelos automatizados, nossos membros estão trabalhando para resolver desafios do mundo real enquanto conectam academia e indústria.",
     "project_status": "Status",
@@ -46,7 +41,6 @@
     "projects_cta_title": "Participe",
     "projects_cta_description": "Interessado em contribuir para um de nossos projetos ou iniciar o seu? Junte-se ao Nova Tech Club e transforme suas ideias em realidade!",
     "projects_cta_button": "Participe de um Projeto",
-
     "articles_title": "Artigos de Pesquisa",
     "articles_description": "O Nova Tech Club conecta estudantes, o mundo da tecnologia, e a indústria ao compartilhar insights sobre tecnologia e inovação. Nossos artigos apresentam os avanços mais recentes e fornecem oportunidades de aprendizado e colaboração.",
     "articles_input_placeholder": "Buscar artigos...",
@@ -55,15 +49,13 @@
     "articles_cta_title": "Contribua para Nossa Pesquisa",
     "articles_cta_description": "Tem uma ideia inovadora, projeto de pesquisa ou um tema que você gostaria de explorar? Colabore com o Nova Tech Club para transformar sua visão em realidade. Quer você queira compartilhar descobertas ou propor novas áreas de pesquisa, estamos aqui para apoiar a inovação e a criatividade.\nClique abaixo para enviar sua pesquisa ou sugerir um tema que você é apaixonado:",
     "articles_cta_button": "Envie Sua Pesquisa",
-
-    "events_title": "Próximos Eventos",
+    "events_title": "Os Nosso Eventos",
     "events_description": "Junte-se a nós para eventos tecnológicos emocionantes, workshops práticos e oportunidades de networking com profissionais líderes do setor e parceiros corporativos! Explore tendências inovadoras, obtenha insights de especialistas e conecte-se com entusiastas de tecnologia afins.",
     "events_input_placeholder": "Buscar eventos...",
     "events_capacity": "Capacidade",
     "events_cta_title": "Sugira um Evento",
     "events_cta_description": "Tem uma ideia para um evento tecnológico emocionante, workshop ou painel de discussão? Seja um seminário envolvente, um hackathon prático ou uma sessão de networking com líderes da indústria, adoraríamos tornar sua visão realidade!\nClique abaixo para compartilhar sua ideia e colabore conosco para que aconteça:",
     "events_cta_button": "Enviar Proposta de Evento",
-
     "contacts_title": "Contate-Nos",
     "contacts_form_title": "Entre em Contato",
     "contacts_form_name_placeholder": "Seu Nome",
@@ -74,16 +66,13 @@
     "contacts_info_title": "Informações de Contato",
     "contacts_social_media": "Mídias Sociais",
     "contacts_address": "Endereço",
-
     "event_about": "Sobre o Evento",
     "event_speakers": "Palestrantes",
     "event_details": "Detalhes do Evento",
     "event_capacity": "Capacidade",
     "event_attendees": "participantes",
     "event_back": "Voltar para Eventos",
-
     "article_back": "Voltar para Artigos",
-
     "project_overview": "Visão Geral do Projeto",
     "project_progress": "Progresso",
     "project_start": "Início",
@@ -92,12 +81,10 @@
     "project_updates": "Atualizações Recentes",
     "project_tech": "Tecnologias",
     "project_qa": "Ações Rápidas",
-    "project_qa_contact": "Agendar Reunião",
+    "project_qa_contact": "Junte-se a nós para este projeto",
     "project_qa_repo": "Ver Repositório",
     "project_back": "Voltar para Projetos",
-
     "load_error": "Ocorreu um erro",
-
     "dep_tech": "Tecnologia e Inovação",
     "dep_tech_desc": "Impulsionando a inovação em software e IA através de projetos práticos, promovendo melhorias contínuas de habilidades.",
     "dep_events": "Eventos e Operações",
@@ -108,7 +95,6 @@
     "dep_research_desc": "Pesquisar e compartilhar insights sobre as últimas tendências tecnológicas e tecnologias emergentes, promovendo o conhecimento dentro da comunidade.",
     "dep_sales": "Vendas e Relações",
     "dep_sales_desc": "Ampliar o impacto do clube formando parcerias, arrecadando patrocínios e promovendo a colaboração com atores chave da indústria tecnológica.",
-
     "search_title": "Motor de Busca de Artigos",
     "search_placeholder": "Buscar...",
     "search_advanced_alternative": "Ou experimente",
@@ -117,7 +103,6 @@
     "no_results_found": "Nenhum resultado encontrado",
     "searching": "Buscando...",
     "min_characters": "Por favor, insira pelo menos {minLength} caracteres para buscar.",
-
     "advanced_title": "Filtro de Busca Avançada de Artigos",
     "author": "Autor",
     "authors": "Autores",

@@ -12,14 +12,16 @@
 	import GitBranch from 'lucide-svelte/icons/git-branch';
 
 	let { data } = $props();
+
+	const project = data.project
 </script>
 
 <svelte:head>
-	<title>{data.project.title}</title>
+	<title>{project?.title}</title>
 </svelte:head>
 
 <div class="container mx-auto p-8">
-	<h1 class="mb-8 text-3xl font-bold">{data.project.title}</h1>
+	<h1 class="mb-8 text-3xl font-bold">{project?.title}</h1>
 
 	<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
 		<div class="md:col-span-2">
@@ -28,22 +30,24 @@
 					<Card.Title>{m.project_overview()}</Card.Title>
 				</Card.Header>
 				<Card.Content>
-					<p class="mb-4">{data.project.description}</p>
+					<p class="mb-4">{project?.description}</p>
 					<div class="mb-4 flex items-center justify-between">
-						<Badge variant={data.project.status === 'Completed' ? 'default' : 'secondary'}
-							>{data.project.status}</Badge
+						<Badge variant={project?.status === 'Completed' ? 'default' : 'secondary'}
+							>{project?.status}</Badge
 						>
 						<span class="text-sm text-muted-foreground"
-							>{m.project_progress()}: {data.project.progress}%</span
+							>{m.project_progress()}: {project?.progress}%</span
 						>
 					</div>
-					<Progress value={data.project.progress} class="w-full" />
+					<Progress value={project?.progress} class="w-full" />
 					<div class="mt-4 flex justify-between text-sm text-muted-foreground">
-						<span>{m.project_start()}: {formatDate(data.project.start)}</span>
-						<span>{m.project_end()}: {formatDate(data.project.end)}</span>
+						<span>{m.project_start()}: {formatDate(project?.start)}</span>
+						<span>{m.project_end()}: {formatDate(project?.end)}</span>
 					</div>
 				</Card.Content>
 			</Card.Root>
+
+			{#if project.milestones}
 
 			<Card.Root class="mb-8">
 				<Card.Header>
@@ -51,7 +55,7 @@
 				</Card.Header>
 				<Card.Content>
 					<ul class="space-y-4">
-						{#each data.project.milestones as milestone}
+						{#each project?.milestones as milestone}
 							<li class="flex items-center">
 								<div
 									class={`mr-3 h-4 w-4 rounded-full ${milestone.completed ? 'bg-green-500' : 'bg-gray-300'}`}
@@ -64,14 +68,16 @@
 					</ul>
 				</Card.Content>
 			</Card.Root>
+			{/if}
 
+			{#if project.updates}
 			<Card.Root>
 				<Card.Header>
 					<Card.Title>{m.project_updates()}</Card.Title>
 				</Card.Header>
 				<Card.Content>
 					<ul class="space-y-4">
-						{#each data.project.updates as update}
+						{#each project?.updates as update}
 							<li>
 								<div class="text-sm text-muted-foreground">{update.date}</div>
 								<div>{update.message}</div>
@@ -80,6 +86,7 @@
 					</ul>
 				</Card.Content>
 			</Card.Root>
+			{/if}
 		</div>
 
 		<div>
@@ -89,7 +96,7 @@
 				</Card.Header>
 				<Card.Content>
 					<div class="flex flex-wrap gap-4">
-						{#each data.project?.expand?.team as member}
+						{#each project?.expand?.team as member}
 							<HoverMember {member} />
 						{/each}
 					</div>
@@ -102,7 +109,7 @@
 				</Card.Header>
 				<Card.Content>
 					<div class="flex flex-wrap gap-2">
-						{#each data.project.tech.split(';') as tech}
+						{#each project?.tech.split(';') as tech}
 							<Badge variant="outline">{tech}</Badge>
 						{/each}
 					</div>
@@ -118,7 +125,7 @@
 						<Calendar class="mr-2 h-4 w-4" />
 						{m.project_qa_contact()}
 					</Button>
-					<Button class="w-full" variant="outline" href={data.project.repo} target="_blank">
+					<Button class="w-full" variant="outline" href={project?.repo} target="_blank">
 						<GitBranch class="mr-2 h-4 w-4" />
 						{m.project_qa_repo()}
 					</Button>

@@ -1,7 +1,6 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
 	"hello_world": "Ciao, {name} da en!",
-
 	"home": "Homepage",
 	"about": "Chi siamo",
 	"projects": "Progetti",
@@ -9,9 +8,7 @@
 	"articles": "Articoli",
 	"contacts": "Contatti",
 	"language": "Lingua",
-
 	"copyright": "Nova Tech Club. Tutti i diritti riservati.",
-
 	"hero_title": "Innova. Crea. Ispira.",
 	"hero_description": "Unisciti a Nova Tech Club e contribuisci a trasformare il futuro della tecnologia.",
 	"hero_button": "Inizia",
@@ -29,13 +26,11 @@
 	"articles_more_button": "Vedi altri articoli",
 	"articles_by": "Di",
 	"articles_on": "il",
-
 	"about_title": "Chi Siamo",
 	"about_description": "Nova Tech Club è una comunità di appassionati di tecnologia dedicata a superare i confini dell'innovazione. I nostri dipartimenti eterogenei collaborano per creare un ambiente dinamico e stimolante per tutti i membri.",
 	"about_joinus_title": "Unisciti alla nostra comunità",
 	"about_joinus_description": "Entra a far parte di Nova Tech Club e contribuisci a trasformare il futuro della tecnologia.",
 	"about_joinus_button": "Partecipa",
-
 	"projects_title": "I nostri progetti",
 	"projects_description": "In Nova Tech Club diamo vita alla nostra missione e visione realizzando progetti all’avanguardia che esplorano le frontiere della tecnologia. Dalle criptovalute al machine learning, dall’analisi del sentiment allo sviluppo automatizzato di modelli, i nostri membri affrontano sfide reali, colmando il divario tra il mondo accademico e l’industria.",
 	"project_status": "Stato",
@@ -44,7 +39,6 @@
 	"projects_cta_title": "Coinvolgiti",
 	"projects_cta_description": "Sei interessato a contribuire a uno dei nostri progetti o ad avviarne uno tuo? Unisciti a Nova Tech Club e trasforma le tue idee in realtà!",
 	"projects_cta_button": "Unisciti a un progetto",
-
 	"articles_title": "Articoli di Ricerca",
 	"articles_description": "Nova Tech Club riduce la distanza tra studenti, il mondo tecnologico e l’industria, condividendo approfondimenti su tecnologia e innovazione. I nostri articoli presentano le ultime novità e offrono opportunità di apprendimento e collaborazione.",
 	"articles_input_placeholder": "Cerca articoli...",
@@ -53,15 +47,13 @@
 	"articles_cta_title": "Contribuisci alla nostra ricerca",
 	"articles_cta_description": "Hai un’idea rivoluzionaria, un progetto di ricerca o un argomento che vorresti approfondire? Collabora con Nova Tech Club per trasformare la tua visione in realtà. Che tu voglia condividere risultati o proporre nuove aree di studio, siamo qui per sostenere l’innovazione e la creatività.\nClicca qui sotto per inviare la tua ricerca o suggerire un tema di tuo interesse:",
 	"articles_cta_button": "Invia la tua ricerca",
-
-	"events_title": "Prossimi Eventi",
+	"events_title": "Nostri Eventi",
 	"events_description": "Unisciti a noi per eventi tecnologici entusiasmanti, workshop pratici e opportunità di networking con professionisti di spicco e partner aziendali! Esplora tendenze innovative, ricevi insight dagli esperti e connettiti con altri appassionati di tecnologia.",
 	"events_input_placeholder": "Cerca eventi...",
 	"events_capacity": "Capacità",
 	"events_cta_title": "Suggerisci un evento",
 	"events_cta_description": "Hai un’idea per un evento tecnologico coinvolgente, un workshop o una tavola rotonda? Che si tratti di un seminario stimolante, un hackathon pratico o un incontro di networking con leader del settore, saremo lieti di realizzare la tua visione!\nClicca qui sotto per condividere la tua idea e collaborare con noi per trasformarla in realtà:",
 	"events_cta_button": "Invia una proposta di evento",
-
 	"contacts_title": "Contattaci",
 	"contacts_form_title": "Mettiti in Contatto",
 	"contacts_form_name_placeholder": "Il tuo nome",
@@ -72,16 +64,13 @@
 	"contacts_info_title": "Informazioni di Contatto",
 	"contacts_social_media": "Social Media",
 	"contacts_address": "Indirizzo",
-
 	"event_about": "Informazioni sull'evento",
 	"event_speakers": "Relatori",
 	"event_details": "Dettagli dell'evento",
 	"event_capacity": "Capacità",
 	"event_attendees": "partecipanti",
 	"event_back": "Torna agli eventi",
-
 	"article_back": "Torna agli articoli",
-
 	"project_overview": "Panoramica del progetto",
 	"project_progress": "Avanzamento",
 	"project_start": "Inizio",
@@ -90,12 +79,10 @@
 	"project_updates": "Aggiornamenti recenti",
 	"project_tech": "Tecnologie",
 	"project_qa": "Azioni rapide",
-	"project_qa_contact": "Fissa un incontro",
+	"project_qa_contact": "Unisciti a noi per questo progetto",
 	"project_qa_repo": "Visualizza il repository",
 	"project_back": "Torna ai progetti",
-
 	"load_error": "Impossibile caricare i record",
-
 	"dep_tech": "Tecnologia e Innovazione",
 	"dep_tech_desc": "Promuoviamo l’innovazione nel software e nell’IA attraverso progetti pratici, favorendo il costante miglioramento delle competenze.",
 	"dep_events": "Eventi e Operazioni",

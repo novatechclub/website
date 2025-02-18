@@ -92,5 +92,8 @@
 	"dep_research": "Forschung und Wissen",
 	"dep_research_desc": "Forschung zu aufkommenden Technologien und Wissensaustausch innerhalb der Gemeinschaft.",
 	"dep_sales": "Vertrieb und Beziehungen",
-	"dep_sales_desc": "Aufbau von Partnerschaften und Pflege von Beziehungen zu Sponsoren und Industriepartnern."
+	"dep_sales_desc": "Aufbau von Partnerschaften und Pflege von Beziehungen zu Sponsoren und Industriepartnern.",
+	"recruit_pretitle": "",
+	"recruit_title": "NTC rekrutiert derzeit",
+	"recruit_cta": "Hier bewerben"
 }

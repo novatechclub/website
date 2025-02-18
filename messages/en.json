@@ -116,5 +116,8 @@
 	"tags": "Tags",
 	"views": "Views",
 	"previous": "Previous",
-	"next": "Next"
+	"next": "Next",
+	"recruit_pretitle": "Good News!",
+	"recruit_title": "NTC is recruiting is open",
+	"recruit_cta": "Apply here"
 }

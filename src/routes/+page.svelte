@@ -72,7 +72,7 @@
 		{/if}
 	{/await}
 
-	<section class="my-16 rounded-lg bg-secondary py-20 text-center" id="cta">
+	<!-- <section class="my-16 rounded-lg bg-secondary py-20 text-center" id="cta">
 		<div class="mx-auto max-w-3xl">
 			<h2 class="mb-4 text-3xl font-bold">{m.cta_title()}</h2>
 			<p class="mb-8 text-xl">
@@ -80,7 +80,7 @@
 			</p>
 			<Button size="lg" href="/contacts">{m.cta_button()}</Button>
 		</div>
-	</section>
+	</section> -->
 
 	{#await data.projects}
 		<section class="py-16">

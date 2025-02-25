@@ -9,7 +9,7 @@
 	import LoaderCircle from 'lucide-svelte/icons/loader-circle';
 	import MapPin from 'lucide-svelte/icons/map-pin';
 
-	import HeroImage from '$lib/assets/placeholder.png?enhanced';
+	import HeroImage from '$lib/assets/NTC Website Landing Image.png?enhanced';
 
 	let { data } = $props();
 </script>
@@ -103,7 +103,11 @@
 								<Card.Description>{m.project_status()}: {project.status}</Card.Description>
 							</Card.Header>
 							<Card.Content>
-								<p>{project.description}</p>
+								<p>
+									{project.description?.length < 350
+										? project.description
+										: project.description?.slice(0, 350) + '...'}
+								</p>
 							</Card.Content>
 							<Card.Footer>
 								<Button variant="outline" href="/projects/{project.id}">{m.project_button()}</Button
@@ -147,7 +151,11 @@
 									{m.articles_on()}
 									{formatDate(article.date)}
 								</p>
-								<p>{article.abstract}</p>
+								<p>
+									{article.abstract?.length < 350
+										? article.abstract
+										: article.abstract?.slice(0, 350) + '...'}
+								</p>
 							</Card.Content>
 							<Card.Footer>
 								<Button variant="outline" href="/articles/{article.id}"

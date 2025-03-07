@@ -56,6 +56,8 @@
 	"events_cta_title": "Suggest an Event",
 	"events_cta_description": "Have an idea for an exciting tech event, workshop, or panel discussion? Whether it's an engaging seminar, a hands-on hackathon, or a networking session with industry leaders, we’d love to bring your vision to life! \nClick below to share your idea and collaborate with us to make it happen:",
 	"events_cta_button": "Submit Event Proposal",
+	"events_past": "Past Events",
+	"events_no_upcomming": "Stay tuned to our upcomming events.",
 	"contacts_title": "Contact Us",
 	"contacts_form_title": "Get in Touch",
 	"contacts_form_name_placeholder": "Your Name",

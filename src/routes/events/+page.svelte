@@ -14,6 +14,7 @@
 	import Podcast from 'lucide-svelte/icons/podcast';
 	import MapPin from 'lucide-svelte/icons/map-pin';
 	import LoaderCircle from 'lucide-svelte/icons/loader-circle';
+	import { cn } from '$lib/utils.js';
 
 	let { data } = $props();
 
@@ -76,9 +77,92 @@
 				) ||
 				entry.tags.toLowerCase().includes(query.toLowerCase())
 		)}
+		{@const upcomingEvents = filtered.filter((entry) => new Date(entry.date) >= new Date())}
+		{#if upcomingEvents.lenght > 0}
+			<section class="grid grid-cols-1 gap-8 md:grid-cols-2">
+				{#each filtered as event}
+					{@const pastEvent = new Date() > new Date(event.date)}
+					<div in:fade>
+						<Card.Root class={pastEvent ? '' : ''}>
+							<Card.Header>
+								<Card.Title>{event.title}</Card.Title>
+							</Card.Header>
+							<Card.Content>
+								{#if event.tags}
+									<div class="mb-4 flex flex-wrap gap-2">
+										{#each event.tags.split(';') as tag}
+											<Badge variant="secondary">{tag}</Badge>
+										{/each}
+									</div>
+								{/if}
+
+								<div class="flex flex-row justify-between">
+									<div class={cn('flex items-center', pastEvent ? 'text-red-500' : '')}>
+										<Calendar class="mr-2 h-4 w-4" />
+										{formatDate(event.date)} | {event.time}
+									</div>
+
+									<div class="mt-1 flex items-center">
+										<MapPin class="mr-2 h-4 w-4" />
+										{event.location}
+									</div>
+								</div>
+
+								{#if event.expand?.speakers}
+									<div class="mt-1 flex items-center">
+										<Podcast class="mr-2 h-4 w-4" />
+										<div class="flex flex-row gap-4">
+											{#each event.expand.speakers as speaker}
+												<p>{speaker.name}</p>
+											{/each}
+										</div>
+									</div>
+								{/if}
+								<p class="my-4">{event.description}</p>
+								<p class="flex items-center text-sm text-muted-foreground">
+									<Users class="mr-2 h-4 w-4" />
+									{m.events_capacity()}: {event.capacity}
+								</p>
+							</Card.Content>
+							<Card.Footer>
+								<Button href="/events/{event.id}">{m.event_button()}</Button>
+							</Card.Footer>
+						</Card.Root>
+					</div>
+				{/each}
+			</section>
+		{:else}
+			<p class="my-32 text-center text-lg font-semibold">{m.events_no_upcomming()}</p>
+		{/if}
+	{:catch error}
+		<p>{m.load_error()}: {error}</p>
+	{/await}
+
+	{#await data.events}
+		<div
+			class="flex w-full justify-center
+"
+		>
+			<!-- <LoaderCircle class="animate-spin" /> -->
+		</div>
+	{:then events}
+		<!-- {@const filtered = events.filter((entry) => new Date(entry.date) < new Date())} -->
+		{@const filtered = events.filter(
+			(entry) =>
+				entry.title.toLowerCase().includes(query.toLowerCase()) ||
+				entry.location.toLowerCase().includes(query.toLowerCase()) ||
+				entry.description.toLowerCase().includes(query.toLowerCase()) ||
+				entry.expand.speakers.some((speaker) =>
+					speaker.name.toLowerCase().includes(query.toLowerCase())
+				) ||
+				entry.tags.toLowerCase().includes(query.toLowerCase())
+		)}
+		{@const pastEvents = filtered.filter((entry) => new Date(entry.date) < new Date())}
+
+		<h2 class="my-4 text-3xl font-bold">{m.events_past()}</h2>
 
 		<section class="grid grid-cols-1 gap-8 md:grid-cols-2">
-			{#each filtered as event}
+			{#each pastEvents as event}
 				<div in:fade>
 					<Card.Root>
 						<Card.Header>
@@ -116,10 +200,12 @@
 								</div>
 							{/if}
 							<p class="my-4">{event.description}</p>
-							<p class="flex items-center text-sm text-muted-foreground">
-								<Users class="mr-2 h-4 w-4" />
-								{m.events_capacity()}: {event.capacity}
-							</p>
+							{#if event.capacity > 0}
+								<p class="flex items-center text-sm text-muted-foreground">
+									<Users class="mr-2 h-4 w-4" />
+									{m.events_capacity()}: {event.capacity}
+								</p>
+							{/if}
 						</Card.Content>
 						<Card.Footer>
 							<Button href="/events/{event.id}">{m.event_button()}</Button>
@@ -131,6 +217,7 @@
 	{:catch error}
 		<p>{m.load_error()}: {error}</p>
 	{/await}
+
 	<section class="mt-16 text-center">
 		<h2 class="mb-4 text-3xl font-bold">{m.events_cta_title()}</h2>
 		<p class="mb-8 text-xl">{m.events_cta_description()}</p>

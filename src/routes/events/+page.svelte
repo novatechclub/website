@@ -15,6 +15,7 @@
 	import MapPin from 'lucide-svelte/icons/map-pin';
 	import LoaderCircle from 'lucide-svelte/icons/loader-circle';
 	import { cn } from '$lib/utils.js';
+	import { json } from '@sveltejs/kit';
 
 	let { data } = $props();
 
@@ -78,12 +79,12 @@
 				entry.tags.toLowerCase().includes(query.toLowerCase())
 		)}
 		{@const upcomingEvents = filtered.filter((entry) => new Date(entry.date) >= new Date())}
-		{#if upcomingEvents.lenght > 0}
+		
+		{#if upcomingEvents.length > 0}
 			<section class="grid grid-cols-1 gap-8 md:grid-cols-2">
-				{#each filtered as event}
-					{@const pastEvent = new Date() > new Date(event.date)}
+				{#each upcomingEvents as event}
 					<div in:fade>
-						<Card.Root class={pastEvent ? '' : ''}>
+						<Card.Root>
 							<Card.Header>
 								<Card.Title>{event.title}</Card.Title>
 							</Card.Header>
@@ -97,7 +98,7 @@
 								{/if}
 
 								<div class="flex flex-row justify-between">
-									<div class={cn('flex items-center', pastEvent ? 'text-red-500' : '')}>
+									<div class='flex items-center'>
 										<Calendar class="mr-2 h-4 w-4" />
 										{formatDate(event.date)} | {event.time}
 									</div>

@@ -20,7 +20,7 @@
 	"cta_button": "Dem Nova Tech Club Beitreten",
 	"upcoming_events": "Kommende Veranstaltungen",
 	"event_at_time": "um",
-	"event_button": "Jetzt Registrieren",
+	"event_button": "Mitmachen",
 	"events_more_button": "Weitere Veranstaltungen Ansehen",
 	"latest_articles": "Neueste Artikel",
 	"articles_more_button": "Weitere Artikel Ansehen",
@@ -94,6 +94,6 @@
 	"dep_sales": "Sales and Relations",
 	"dep_sales_desc": "Aufbau von Partnerschaften und Pflege von Beziehungen zu Sponsoren und Industriepartnern.",
 	"recruit_pretitle": "",
-	"recruit_title": "NTC recruiting is open",
+	"recruit_title": "NTC rekrutiert derzeit",
 	"recruit_cta": "Hier bewerben"
 }

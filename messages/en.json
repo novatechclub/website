@@ -22,7 +22,7 @@
 	"cta_button": "Join NTC",
 	"upcoming_events": "Upcoming Events",
 	"event_at_time": "at",
-	"event_button": "Register now",
+	"event_button": "Join Us",
 	"events_more_button": "See More Events",
 	"latest_articles": "Latest Articles",
 	"articles_more_button": "See More Articles",
@@ -118,6 +118,6 @@
 	"previous": "Previous",
 	"next": "Next",
 	"recruit_pretitle": "Good News!",
-	"recruit_title": "NTC recruiting is open",
+	"recruit_title": "NTC is recruiting is open",
 	"recruit_cta": "Apply here"
 }

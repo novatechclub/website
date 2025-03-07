@@ -47,10 +47,6 @@
 			{/if}
 		</header>
 
-		<div class="mb-8">
-			<h2 class="mb-4 text-2xl font-semibold">{m.event_about()}</h2>
-			<p class="text-gray-700">{data.event.description}</p>
-		</div>
 		{#if data.event.expand?.speakers}
 			<div class="mb-8">
 				<h2 class="mb-4 text-2xl font-semibold">{m.event_speakers()}</h2>
@@ -60,7 +56,7 @@
 							<Card.Content class="flex items-center p-4">
 								<Avatar.Root class="mr-4 h-12 w-12">
 									<Avatar.Image
-										src={getImageURL('speakers', speaker.id, speaker.avatar)}
+										src={getImageURL('members', speaker.id, speaker.avatar)}
 										alt={speaker.name}
 									/>
 									<Avatar.Fallback>{getInitials(speaker.name)}</Avatar.Fallback>
@@ -80,6 +76,11 @@
 			<h2 class="mb-4 text-2xl font-semibold">{m.event_details()}</h2>
 			<Card.Root>
 				<Card.Content class="p-6">
+					<div class="mb-8">
+						<!-- <h2 class="mb-4 text-2xl font-semibold">{m.event_about()}</h2> -->
+						<p class="text-gray-700">{data.event.description}</p>
+					</div>
+
 					<div class="mb-4 flex items-center justify-between">
 						<div class="flex items-center">
 							<Users class="mr-2 h-5 w-5" />

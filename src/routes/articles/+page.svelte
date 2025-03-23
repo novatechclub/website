@@ -9,6 +9,8 @@
 	import Search from 'lucide-svelte/icons/search';
 	import LoaderCicle from 'lucide-svelte/icons/loader-circle';
 	import BookOpen from 'lucide-svelte/icons/book-open';
+	import TextShortener from '$lib/ui/TextShortener.svelte';
+	import ImageBox from '$lib/ui/ImageBox.svelte';
 
 	let { data } = $props();
 
@@ -58,8 +60,10 @@
 	</section>
 
 	{#await filtered}
-		<div class="flex w-full justify-center
-">
+		<div
+			class="flex w-full justify-center
+"
+		>
 			<LoaderCicle class="animate-spin" />
 		</div>
 	{:then articles}
@@ -67,6 +71,13 @@
 			{#each articles as article}
 				<Card.Root>
 					<Card.Header>
+						<ImageBox
+							src={article?.images}
+							alt="Article Image"
+							id={article?.id}
+							collection="articles"
+						/>
+
 						<Card.Title>{article?.title}</Card.Title>
 						<Card.Description
 							>{article?.expand?.author?.name} | {formatDate(article.date) ??
@@ -81,7 +92,11 @@
 								{/each}
 							</div>
 						{/if}
-						<p class="mb-4">{article?.abstract}</p>
+
+						<p class="mb-4">
+							<TextShortener text={article?.abstract} maxLength={160} />
+						</p>
+
 						<p class="text-sm text-muted-foreground">
 							{m.article_views()}: {article.views}
 						</p>

@@ -16,6 +16,7 @@
 	import LoaderCircle from 'lucide-svelte/icons/loader-circle';
 	import { cn } from '$lib/utils.js';
 	import { json } from '@sveltejs/kit';
+	import EventCard from './EventCard.svelte';
 
 	let { data } = $props();
 
@@ -79,56 +80,14 @@
 				entry.tags.toLowerCase().includes(query.toLowerCase())
 		)}
 		{@const upcomingEvents = filtered.filter((entry) => new Date(entry.date) >= new Date())}
-		
+
+		<h2 class="my-4 text-3xl font-bold">{m.events_upcomming()}</h2>
+
 		{#if upcomingEvents.length > 0}
 			<section class="grid grid-cols-1 gap-8 md:grid-cols-2">
 				{#each upcomingEvents as event}
 					<div in:fade>
-						<Card.Root>
-							<Card.Header>
-								<Card.Title>{event.title}</Card.Title>
-							</Card.Header>
-							<Card.Content>
-								{#if event.tags}
-									<div class="mb-4 flex flex-wrap gap-2">
-										{#each event.tags.split(';') as tag}
-											<Badge variant="secondary">{tag}</Badge>
-										{/each}
-									</div>
-								{/if}
-
-								<div class="flex flex-row justify-between">
-									<div class='flex items-center'>
-										<Calendar class="mr-2 h-4 w-4" />
-										{formatDate(event.date)} | {event.time}
-									</div>
-
-									<div class="mt-1 flex items-center">
-										<MapPin class="mr-2 h-4 w-4" />
-										{event.location}
-									</div>
-								</div>
-
-								{#if event.expand?.speakers}
-									<div class="mt-1 flex items-center">
-										<Podcast class="mr-2 h-4 w-4" />
-										<div class="flex flex-row gap-4">
-											{#each event.expand.speakers as speaker}
-												<p>{speaker.name}</p>
-											{/each}
-										</div>
-									</div>
-								{/if}
-								<p class="my-4">{event.description}</p>
-								<p class="flex items-center text-sm text-muted-foreground">
-									<Users class="mr-2 h-4 w-4" />
-									{m.events_capacity()}: {event.capacity}
-								</p>
-							</Card.Content>
-							<Card.Footer>
-								<Button href="/events/{event.id}">{m.event_button()}</Button>
-							</Card.Footer>
-						</Card.Root>
+						<EventCard {event} />
 					</div>
 				{/each}
 			</section>
@@ -165,53 +124,10 @@
 		<section class="grid grid-cols-1 gap-8 md:grid-cols-2">
 			{#each pastEvents as event}
 				<div in:fade>
-					<Card.Root>
-						<Card.Header>
-							<Card.Title>{event.title}</Card.Title>
-						</Card.Header>
-						<Card.Content>
-							{#if event.tags}
-								<div class="mb-4 flex flex-wrap gap-2">
-									{#each event.tags.split(';') as tag}
-										<Badge variant="secondary">{tag}</Badge>
-									{/each}
-								</div>
-							{/if}
+					
 
-							<div class="flex flex-row justify-between">
-								<div class="flex items-center">
-									<Calendar class="mr-2 h-4 w-4" />
-									{formatDate(event.date)} | {event.time}
-								</div>
+					<EventCard {event} />
 
-								<div class="mt-1 flex items-center">
-									<MapPin class="mr-2 h-4 w-4" />
-									{event.location}
-								</div>
-							</div>
-
-							{#if event.expand?.speakers}
-								<div class="mt-1 flex items-center">
-									<Podcast class="mr-2 h-4 w-4" />
-									<div class="flex flex-row gap-4">
-										{#each event.expand.speakers as speaker}
-											<p>{speaker.name}</p>
-										{/each}
-									</div>
-								</div>
-							{/if}
-							<p class="my-4">{event.description}</p>
-							{#if event.capacity > 0}
-								<p class="flex items-center text-sm text-muted-foreground">
-									<Users class="mr-2 h-4 w-4" />
-									{m.events_capacity()}: {event.capacity}
-								</p>
-							{/if}
-						</Card.Content>
-						<Card.Footer>
-							<Button href="/events/{event.id}">{m.event_button()}</Button>
-						</Card.Footer>
-					</Card.Root>
 				</div>
 			{/each}
 		</section>

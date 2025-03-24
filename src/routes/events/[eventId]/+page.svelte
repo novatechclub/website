@@ -12,6 +12,7 @@
 	import Clock from 'lucide-svelte/icons/clock';
 	import Users from 'lucide-svelte/icons/users';
 	import MapPin from 'lucide-svelte/icons/map-pin';
+	import ImageBox from '$lib/ui/ImageBox.svelte';
 
 	let { data } = $props();
 </script>
@@ -23,6 +24,8 @@
 <div class="container mx-auto px-4 py-8">
 	<div class="mx-auto max-w-4xl">
 		<header class="mb-8">
+			<ImageBox src={data.event?.images} alt="Event Images" id={data.event?.id} collection="events" />
+
 			<h1 class="mb-4 text-4xl font-bold">{data.event.title}</h1>
 			<div class="mb-4 flex flex-wrap gap-4">
 				<div class="flex items-center">

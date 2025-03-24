@@ -9,6 +9,7 @@
 	import Calendar from 'lucide-svelte/icons/calendar';
 	import Clock from 'lucide-svelte/icons/clock';
 	import HoverAuthor from './HoverAuthor.svelte';
+	import ImageBox from '$lib/ui/ImageBox.svelte';
 
 	let { data } = $props();
 
@@ -23,6 +24,7 @@
 <div class="container mx-auto px-4 py-8">
 	<article class="mx-auto max-w-3xl">
 		<header class="mb-8">
+			<ImageBox src={article?.images} alt="Article Images" id={article?.id} collection="articles" />
 			<h1 class="mb-4 text-4xl font-bold">{article?.title}</h1>
 			<div class="mb-4 flex items-center justify-between">
 				<HoverAuthor member={article.expand?.author} />

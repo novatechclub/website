@@ -147,7 +147,10 @@
 							<Card.Content>
 								<p class="mb-2 text-sm text-muted-foreground">
 									{m.articles_by()}
-									{article.expand?.author?.name}
+									{#each article?.expand?.author as author, idx (author.id)}
+										{idx === 0 ? '' : ', '}
+										{author?.name}
+									{/each}
 									{m.articles_on()}
 									{formatDate(article.date)}
 								</p>

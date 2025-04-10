@@ -58,7 +58,7 @@ export const load = (async ({ url }) => {
 				return {
 					id: record.id,
 					views: record.views,
-					author: record.expand?.author.name,
+					author: record.expand?.author,
 					tags: replaceTextWithMarker(record.tags, query),
 					title: replaceTextWithMarker(record.title, query),
 					text: getMatches(record.abstract, query)

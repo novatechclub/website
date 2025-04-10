@@ -152,7 +152,13 @@
 										<Table.Row>
 											<Table.Cell class="font-medium"
 												><a href="/articles/{result.id}" class="hover:underline">
-													{result.author}
+													
+
+													{#each result?.author as  author, idx (author.id)}
+													{idx === 0 ? '' : ', '}
+													{author.name}
+														
+													{/each}
 												</a></Table.Cell
 											>
 											<Table.Cell>

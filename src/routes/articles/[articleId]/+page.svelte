@@ -14,11 +14,22 @@
 	let { data } = $props();
 
 	const article = data.article;
+
+	console.log(article);
+
+	let str = $state('');
+	article?.expand?.author?.forEach((num, idx) => {
+		if (idx !== 0) {
+			str += ' ,' + num?.name;
+		} else {
+			str += num?.name;
+		}
+	});
 </script>
 
 <svelte:head>
 	<title>{article?.title}</title>
-	<meta name="author" content={article?.expand?.author?.name} />
+	<meta name="author" content={str} />
 </svelte:head>
 
 <div class="container mx-auto px-4 py-8">
@@ -27,8 +38,12 @@
 			<ImageBox src={article?.images} alt="Article Images" id={article?.id} collection="articles" />
 			<h1 class="mb-4 text-4xl font-bold">{article?.title}</h1>
 			<div class="mb-4 flex items-center justify-between">
-				<HoverAuthor member={article.expand?.author} />
-
+				<!-- <div class="grid gap-4 grid-cols-2"> -->
+				<div class="flex flex-wrap gap-4">
+					{#each article?.expand?.author as author}
+						<HoverAuthor member={author} />
+					{/each}
+				</div>
 				<div class="flex items-center text-sm text-muted-foreground">
 					<Calendar class="mr-1 h-4 w-4" />
 					<span class="mr-4">{formatDate(article?.date)}</span>

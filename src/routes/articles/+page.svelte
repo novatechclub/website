@@ -22,7 +22,7 @@
 		return data.articles.then((r) => {
 			const articles = r.map((article) => ({
 				...article,
-				searchTerms: `${article.title} ${article.abstract} ${article.expand?.author.name} ${article.tags} ${formatDate(article.date)}`
+				searchTerms: `${article.title} ${article.abstract} ${article.expand?.author.map((author) => author?.name)} ${article.tags} ${formatDate(article.date)}`
 			}));
 
 			const filteredArticles = articles.filter((item) => {
@@ -79,15 +79,18 @@
 						/>
 
 						<Card.Title>{article?.title}</Card.Title>
-						<Card.Description
-							>{article?.expand?.author?.name} | {formatDate(article.date) ??
-								'Not found.'}</Card.Description
-						>
+						<Card.Description>
+							{#each article?.expand?.author as author, idx (author.id)}
+								{idx === 0 ? '' : ', '}
+								{author?.name}
+							{/each}
+							| {formatDate(article.date) ?? 'Not found.'}
+						</Card.Description>
 					</Card.Header>
 					<Card.Content>
-						{#if article.tags}
+						{#if article?.tags}
 							<div class="mb-4 flex flex-wrap gap-2">
-								{#each article.tags.split(';') as tag}
+								{#each article.tags?.split(';') as tag}
 									<Badge variant="secondary">{tag}</Badge>
 								{/each}
 							</div>

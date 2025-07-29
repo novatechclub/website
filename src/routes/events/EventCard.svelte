@@ -20,7 +20,7 @@
 	<Card.Header>
 		<ImageBox src={event?.images} alt="Event Image" id={event?.id} collection="events" />
 
-		<Card.Title>{event.title}</Card.Title>
+		<Card.Title><a href={`/events/${event?.id}`}>{event.title}</a></Card.Title>
 	</Card.Header>
 	<Card.Content>
 		{#if event.tags}

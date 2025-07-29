@@ -63,7 +63,7 @@
 			{#each projects as project}
 				<Card.Root>
 					<Card.Header>
-						<Card.Title>{project.title}</Card.Title>
+						<Card.Title><a href={`/projects/${project.id}`}>{project.title}</a></Card.Title>
 						<Card.Description>{m.project_status()}: {project.status}</Card.Description>
 					</Card.Header>
 					<Card.Content>

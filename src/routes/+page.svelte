@@ -100,7 +100,7 @@
 					{#each projects.items as project}
 						<Card.Root>
 							<Card.Header>
-								<Card.Title>{project.title}</Card.Title>
+								<Card.Title><a href={`/projects/${project.id}`}>{project.title}</a></Card.Title>
 								<Card.Description>{m.project_status()}: {project.status}</Card.Description>
 							</Card.Header>
 							<Card.Content>
@@ -143,7 +143,7 @@
 					{#each articles.items as article}
 						<Card.Root>
 							<Card.Header>
-								<Card.Title>{article.title}</Card.Title>
+								<Card.Title><a href={`/articles/${article.id}`}>{article.title}</a></Card.Title>
 							</Card.Header>
 							<Card.Content>
 								<p class="mb-2 text-sm text-muted-foreground">

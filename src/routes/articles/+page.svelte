@@ -1,6 +1,6 @@
 <script lang="ts">
 	import * as m from '$lib/paraglide/messages.js';
-	import { formatDate } from '$lib/tools';
+	import { formatDate, getImageURL } from '$lib/tools';
 	import * as Card from '$lib/components/ui/card/index.js';
 	import { Button } from '$lib/components/ui/button';
 	import { Input } from '$lib/components/ui/input';
@@ -8,6 +8,7 @@
 
 	import Search from 'lucide-svelte/icons/search';
 	import LoaderCicle from 'lucide-svelte/icons/loader-circle';
+	import FileText from 'lucide-svelte/icons/file-text';
 	import BookOpen from 'lucide-svelte/icons/book-open';
 	import TextShortener from '$lib/ui/TextShortener.svelte';
 	import ImageBox from '$lib/ui/ImageBox.svelte';
@@ -67,50 +68,131 @@
 			<LoaderCicle class="animate-spin" />
 		</div>
 	{:then articles}
+		<h2 class="my-4 text-3xl font-bold">{m.industry_reports()}</h2>
+
 		<section class="grid grid-cols-1 gap-8 md:grid-cols-2">
 			{#each articles as article}
-				<Card.Root>
-					<Card.Header>
-						<ImageBox
-							src={article?.images}
-							alt="Article Image"
-							id={article?.id}
-							collection="articles"
-						/>
+				{#if article?.type === 'industry_report'}
+					<Card.Root>
+						<Card.Header>
+							<ImageBox
+								src={article?.images}
+								alt="Article Image"
+								id={article?.id}
+								collection="articles"
+							/>
 
-						<Card.Title>{article?.title}</Card.Title>
-						<Card.Description>
-							{#each article?.expand?.author as author, idx (author.id)}
-								{idx === 0 ? '' : ', '}
-								{author?.name}
-							{/each}
-							| {formatDate(article.date) ?? 'Not found.'}
-						</Card.Description>
-					</Card.Header>
-					<Card.Content>
-						{#if article?.tags}
-							<div class="mb-4 flex flex-wrap gap-2">
-								{#each article.tags?.split(';') as tag}
-									<Badge variant="secondary">{tag}</Badge>
+							<Card.Title>{article?.title}</Card.Title>
+							<Card.Description>
+								{#each article?.expand?.author as author, idx (author.id)}
+									{idx === 0 ? '' : ', '}
+									{author?.name}
 								{/each}
+								| {formatDate(article.date) ?? 'Not found.'}
+							</Card.Description>
+						</Card.Header>
+						<Card.Content>
+							{#if article?.tags}
+								<div class="mb-4 flex flex-wrap gap-2">
+									{#each article.tags?.split(';') as tag}
+										<Badge variant="secondary">{tag}</Badge>
+									{/each}
+								</div>
+							{/if}
+
+							<p class="mb-4">
+								<TextShortener text={article?.abstract} maxLength={160} />
+							</p>
+
+							<p class="text-sm text-muted-foreground">
+								{m.article_views()}: {article.views}
+							</p>
+						</Card.Content>
+						<Card.Footer>
+							<div class="flex gap-2">
+								<Button variant="outline" href="/articles/{article?.id}">
+									{m.articles_button()}
+									<BookOpen class="ml-2 h-4 w-4" />
+								</Button>
+
+								{#if article?.pdf}
+									<Button
+										variant="outline"
+										href={getImageURL('articles', article?.id, article?.pdf)}
+										target="_blank"
+									>
+										{m.original_pdf()}
+										<FileText class="ml-2 h-4 w-4" />
+									</Button>
+								{/if}
 							</div>
-						{/if}
+						</Card.Footer>
+					</Card.Root>
+				{/if}
+			{/each}
+		</section>
 
-						<p class="mb-4">
-							<TextShortener text={article?.abstract} maxLength={160} />
-						</p>
+		<h2 class="my-4 text-3xl font-bold">{m.newsletter()}</h2>
 
-						<p class="text-sm text-muted-foreground">
-							{m.article_views()}: {article.views}
-						</p>
-					</Card.Content>
-					<Card.Footer>
-						<Button variant="outline" href="/articles/{article?.id}">
-							{m.articles_button()}
-							<BookOpen class="ml-2 h-4 w-4" />
-						</Button>
-					</Card.Footer>
-				</Card.Root>
+		<section class="grid grid-cols-1 gap-8 md:grid-cols-2">
+			{#each articles as article}
+				{#if article?.type !== 'industry_report'}
+					<Card.Root>
+						<Card.Header>
+							<ImageBox
+								src={article?.images}
+								alt="Article Image"
+								id={article?.id}
+								collection="articles"
+							/>
+
+							<Card.Title>{article?.title}</Card.Title>
+							<Card.Description>
+								{#each article?.expand?.author as author, idx (author.id)}
+									{idx === 0 ? '' : ', '}
+									{author?.name}
+								{/each}
+								| {formatDate(article.date) ?? 'Not found.'}
+							</Card.Description>
+						</Card.Header>
+						<Card.Content>
+							{#if article?.tags}
+								<div class="mb-4 flex flex-wrap gap-2">
+									{#each article.tags?.split(';') as tag}
+										<Badge variant="secondary">{tag}</Badge>
+									{/each}
+								</div>
+							{/if}
+
+							<p class="mb-4">
+								<TextShortener text={article?.abstract} maxLength={160} />
+							</p>
+
+							<p class="text-sm text-muted-foreground">
+								{m.article_views()}: {article.views}
+							</p>
+						</Card.Content>
+						<Card.Footer>
+							<div class="flex gap-2">
+								<Button variant="outline" href="/articles/{article?.id}">
+									{m.articles_button()}
+									<BookOpen class="ml-2 h-4 w-4" />
+								</Button>
+
+								{#if article?.pdf}
+									<Button
+										variant="outline"
+										href={getImageURL('articles', article?.id, article?.pdf)}
+										target="_blank"
+									>
+										{m.original_pdf()}
+										<FileText class="ml-2 h-4 w-4" />
+									</Button>
+								{/if}
+							</div>
+						</Card.Footer>
+					</Card.Root>
+				{/if}
 			{/each}
 		</section>
 	{:catch error}

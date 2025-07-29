@@ -1,6 +1,6 @@
 <script lang="ts">
 	import * as m from '$lib/paraglide/messages.js';
-	import { scrollToAnchor, formatDate } from '$lib/tools';
+	import { scrollToAnchor, formatDate, getImageURL } from '$lib/tools';
 	import { Button } from '$lib/components/ui/button';
 	import * as Card from '$lib/components/ui/card/index.js';
 
@@ -10,6 +10,7 @@
 	import MapPin from 'lucide-svelte/icons/map-pin';
 
 	import HeroImage from '$lib/assets/NTC Website Landing Image.png?enhanced';
+	import FileText from 'lucide-svelte/icons/file-text';
 
 	let { data } = $props();
 </script>
@@ -161,9 +162,22 @@
 								</p>
 							</Card.Content>
 							<Card.Footer>
-								<Button variant="outline" href="/articles/{article.id}"
-									>{m.articles_button()}</Button
-								>
+								<div class="flex gap-2">
+									<Button variant="outline" href="/articles/{article.id}"
+										>{m.articles_button()}</Button
+									>
+
+									{#if article?.pdf}
+										<Button
+											variant="outline"
+											href={getImageURL('articles', article?.id, article?.pdf)}
+											target="_blank"
+										>
+											{m.original_pdf()}
+											<FileText class="ml-2 h-4 w-4" />
+										</Button>
+									{/if}
+								</div>
 							</Card.Footer>
 						</Card.Root>
 					{/each}

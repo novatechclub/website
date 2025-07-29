@@ -1,11 +1,12 @@
 <script lang="ts">
 	import * as m from '$lib/paraglide/messages.js';
-	import { formatDate } from '$lib/tools';
+	import { formatDate, getImageURL } from '$lib/tools';
 	import { Button, buttonVariants } from '$lib/components/ui/button';
 	import { Badge } from '$lib/components/ui/badge';
 	import { Separator } from '$lib/components/ui/separator';
 	import * as Drawer from '$lib/components/ui/drawer/index.js';
-
+	
+	import FileText from 'lucide-svelte/icons/file-text';
 	import Calendar from 'lucide-svelte/icons/calendar';
 	import Clock from 'lucide-svelte/icons/clock';
 	import HoverAuthor from './HoverAuthor.svelte';
@@ -80,7 +81,7 @@
 						<ul class="mb-6 ml-6 list-disc [&>li]:mt-2">
 							{#each article?.sources?.split(';') as source}
 								<li>
-									<a href={source} target="_blank" rel="noreferrer noopener">{source}</a>
+									<p>{source}</p>
 								</li>
 							{/each}
 						</ul>
@@ -90,6 +91,17 @@
 					</Drawer.Footer>
 				</Drawer.Content>
 			</Drawer.Root>
+		{/if}
+
+		{#if article?.pdf}
+			<Button
+				variant="outline"
+				href={getImageURL('articles', article?.id, article?.pdf)}
+				target="_blank"
+			>
+				{m.original_pdf()}
+				<FileText class="ml-2 h-4 w-4" />
+			</Button>
 		{/if}
 
 		<Separator class="my-8" />

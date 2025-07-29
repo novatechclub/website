@@ -146,7 +146,7 @@
 								collection="articles"
 							/>
 
-							<Card.Title>{article?.title}</Card.Title>
+							<Card.Title><a href={`/articles/${article?.id}`}>{article?.title}</a></Card.Title>
 							<Card.Description>
 								{#each article?.expand?.author as author, idx (author.id)}
 									{idx === 0 ? '' : ', '}

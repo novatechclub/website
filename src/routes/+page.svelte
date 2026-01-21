@@ -9,7 +9,7 @@
 	import LoaderCircle from 'lucide-svelte/icons/loader-circle';
 	import MapPin from 'lucide-svelte/icons/map-pin';
 
-	import HeroImage from '$lib/assets/NTC Website Landing Image.png?enhanced';
+	import HeroImage from '$lib/assets/Fall 2025 Landing Page.jpg?enhanced';
 	import FileText from 'lucide-svelte/icons/file-text';
 
 	let { data } = $props();

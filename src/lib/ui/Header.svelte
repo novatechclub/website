@@ -2,7 +2,7 @@
 	import Nav from './header/Nav.svelte';
 	import { MediaQuery } from "svelte/reactivity";
 	import MobileNav from './header/MobileNav.svelte';
-	const isDesktop = new MediaQuery('(min-width: 768px)');
+	const isDesktop = new MediaQuery('(min-width: 768px)', true);
 </script>
 
 <nav class="bg-primary p-4 text-primary-foreground">

@@ -7,7 +7,7 @@
 
 <nav class="bg-primary p-4 text-primary-foreground">
 	<div class="container mx-auto flex items-center justify-between">
-		<div class="w-[150px]">
+		<div class="w-[120px]">
 			<a href="/">
 				<img src="/logo-white.svg" alt="Nova Tech Club Logo" />
 			</a>

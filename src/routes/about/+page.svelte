@@ -2,7 +2,6 @@
 	import * as m from '$lib/paraglide/messages.js';
 
 	import * as Card from '$lib/components/ui/card/index.js';
-	import { Button } from '$lib/components/ui/button';
 
 	import Handshake from 'lucide-svelte/icons/handshake';
 	import Megaphone from 'lucide-svelte/icons/megaphone';
@@ -92,13 +91,18 @@
 
 	<section class="my-12">
 		<p class="mb-8 text-center text-2xl font-semibold">Supported by:</p>
-		<div class="flex w-full justify-center">
+		<div class="flex w-full justify-center items-center gap-8">
 			<div class="w-[220px]">
 				<a
 					href="https://www.hetzner.com/?mtm_campaign=novatechclub_sponsoring&mtm_medium=referral&mtm_content=logo_link"
 					target="_blank"
 				>
 					<img src="/hetzner-logo.jpg" alt="Hetzner Logo" />
+				</a>
+			</div>
+			<div class="w-[220px]">
+				<a href="https://www.datacamp.com" target="_blank">
+					<img src="/datacamp-logo.png" alt="DataCamp Logo" />
 				</a>
 			</div>
 		</div>

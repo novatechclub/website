@@ -97,7 +97,12 @@
 					href="https://www.hetzner.com/?mtm_campaign=novatechclub_sponsoring&mtm_medium=referral&mtm_content=logo_link"
 					target="_blank"
 				>
-					<img src="/hetzner-logo.jpg" alt="Hetzner Logo" />
+					<img src="/hetzner-logo.svg" alt="Hetzner Logo" />
+				</a>
+			</div>
+			<div class="w-[220px]">
+				<a href="https://uni-feedback.com/" target="_blank">
+					<img src="/unifeedback-logo.png" alt="Unifeedback Logo" />
 				</a>
 			</div>
 			<div class="w-[220px]">

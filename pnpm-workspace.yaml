@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 packages:
   - '.'
 
+=======
+>>>>>>> 101d363080b3b1fb4c5c3ec5530197d432474005
 onlyBuiltDependencies:
   - '@sveltejs/kit'
   - esbuild

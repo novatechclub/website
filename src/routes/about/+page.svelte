@@ -2,25 +2,18 @@
 	import * as m from '$lib/paraglide/messages.js';
 
 	import * as Card from '$lib/components/ui/card/index.js';
-	import { Button } from '$lib/components/ui/button';
 
-	import Calendar from 'lucide-svelte/icons/calendar';
-	import Users from 'lucide-svelte/icons/users';
-	import Lightbulb from 'lucide-svelte/icons/lightbulb';
+	import Handshake from 'lucide-svelte/icons/handshake';
 	import Megaphone from 'lucide-svelte/icons/megaphone';
-	import BookOpenText from 'lucide-svelte/icons/book-open-text';
-	import CircleAlert from 'lucide-svelte/icons/circle-alert';
+	import Users from 'lucide-svelte/icons/users';
+	import Brain from 'lucide-svelte/icons/brain';
+	import Code from 'lucide-svelte/icons/code';
 
 	const departments = [
 		{
-			name: m.dep_tech(),
-			description: m.dep_tech_desc(),
-			icon: Lightbulb
-		},
-		{
-			name: m.dep_events(),
-			description: m.dep_events_desc(),
-			icon: Calendar
+			name: m.dep_external_relations(),
+			description: m.dep_external_relations_desc(),
+			icon: Handshake
 		},
 		{
 			name: m.dep_marketing(),
@@ -28,14 +21,19 @@
 			icon: Megaphone
 		},
 		{
-			name: m.dep_research(),
-			description: m.dep_research_desc(),
-			icon: BookOpenText
+			name: m.dep_people(),
+			description: m.dep_people_desc(),
+			icon: Users
 		},
 		{
-			name: m.dep_sales(),
-			description: m.dep_sales_desc(),
-			icon: CircleAlert
+			name: m.dep_research(),
+			description: m.dep_research_desc(),
+			icon: Brain
+		},
+		{
+			name: m.dep_tech(),
+			description: m.dep_tech_desc(),
+			icon: Code
 		}
 	];
 </script>
@@ -47,33 +45,69 @@
 		<p class="mb-8 text-center text-xl">
 			{m.about_description()}
 		</p>
+		<h2 class="mb-4 text-center text-2xl font-semibold">Our Mission</h2>
+		<p class="mb-8 text-center text-lg text-black">
+			{m.about_mission()}
+		</p>
 	</section>
 
-	<section class="grid grid-cols-1 gap-8 md:grid-cols-2">
-		{#each departments as dept}
-			<Card.Root>
-				<Card.Header>
-					<Card.Title class="flex items-center">
-						<span class="mr-2 h-6 w-6"> <dept.icon /></span>
-						{dept.name}</Card.Title
-					>
-				</Card.Header>
-				<Card.Content>
-					<p>{dept.description}</p>
-				</Card.Content>
-			</Card.Root>
-		{/each}
+	<h2 class="mb-8 text-center text-2xl font-semibold">Club Departments</h2>
+
+	<section class="flex justify-center">
+		<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+			{#each departments as dept, index}
+				{#if index === departments.length - 1}
+					<div class="md:col-span-2 flex justify-center">
+						<div class="w-full md:w-1/2">
+							<Card.Root>
+								<Card.Header>
+									<Card.Title class="flex items-center">
+										<span class="mr-2 h-6 w-6"> <dept.icon /></span>
+										{dept.name}</Card.Title
+									>
+								</Card.Header>
+								<Card.Content>
+									<p>{dept.description}</p>
+								</Card.Content>
+							</Card.Root>
+						</div>
+					</div>
+				{:else}
+					<Card.Root>
+						<Card.Header>
+							<Card.Title class="flex items-center">
+								<span class="mr-2 h-6 w-6"> <dept.icon /></span>
+								{dept.name}</Card.Title
+							>
+						</Card.Header>
+						<Card.Content>
+							<p>{dept.description}</p>
+						</Card.Content>
+					</Card.Root>
+				{/if}
+			{/each}
+		</div>
 	</section>
 
 	<section class="my-12">
 		<p class="mb-8 text-center text-2xl font-semibold">Supported by:</p>
-		<div class="flex w-full justify-center">
+		<div class="flex w-full justify-center items-center gap-8">
 			<div class="w-[220px]">
 				<a
 					href="https://www.hetzner.com/?mtm_campaign=novatechclub_sponsoring&mtm_medium=referral&mtm_content=logo_link"
 					target="_blank"
 				>
-					<img src="/hetzner-logo.jpg" alt="Hetzner Logo" />
+					<img src="/hetzner-logo.svg" alt="Hetzner Logo" />
+				</a>
+			</div>
+			<div class="w-[220px]">
+				<a href="https://uni-feedback.com/" target="_blank">
+					<img src="/unifeedback-logo.png" alt="Unifeedback Logo" />
+				</a>
+			</div>
+			<div class="w-[220px]">
+				<a href="https://www.datacamp.com" target="_blank">
+					<img src="/datacamp-logo.png" alt="DataCamp Logo" />
 				</a>
 			</div>
 		</div>

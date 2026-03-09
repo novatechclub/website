@@ -50,9 +50,10 @@
 	{@html `  <script type="application/ld+json">{
    "@context": "https://schema.org",
    "@type": "Website",
-   "name": "${page.data.title} | ${config.title},
-   "url": "https//${config.domain}${page.url.pathname}",
-   "logo": ${config.logo_path}  }</script>`}
+   "name": "${page.data.title} | ${config.title}",
+   "url": "https://${config.domain}${page.url.pathname}",
+   "logo": "${config.logo_path}"
+  }</script>`}
 </svelte:head>
 
 <ParaglideJS {i18n}>

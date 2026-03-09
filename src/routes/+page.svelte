@@ -9,20 +9,23 @@
 	import LoaderCircle from 'lucide-svelte/icons/loader-circle';
 	import MapPin from 'lucide-svelte/icons/map-pin';
 
-	import HeroImage from '$lib/assets/Fall 2025 Landing Page.jpg?enhanced';
+	import HeroImage from '$lib/assets/Spring 2026_Photo.jpeg?enhanced';
 	import FileText from 'lucide-svelte/icons/file-text';
 
 	let { data } = $props();
 </script>
 
 <main class="container mx-auto flex-grow px-4">
-	<section class="flex flex-col-reverse items-center justify-between py-20 md:flex-row">
-		<div class="mb-8 md:mb-0 md:w-1/2">
+	<section class="flex flex-col-reverse items-start justify-between py-12 md:flex-row md:items-start md:gap-8">
+		<div class="mb-8 md:mb-0 md:w-1/2 md:pt-16 md:pl-8">
 			<h1 class="mb-4 text-4xl font-bold md:text-6xl">{m.hero_title()}</h1>
 			<p class="mb-6 text-xl">{m.hero_description()}</p>
-			<Button size="lg" onclick={() => scrollToAnchor('events')}>
-				{m.hero_button()}<ArrowRight class="ml-2" />
-			</Button>
+			<button 
+				class="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-8 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+				onclick={() => window.scrollBy({ top: 600, behavior: 'smooth' })}
+			>
+				Learn More<ArrowRight class="ml-2" />
+			</button>
 		</div>
 		<div class="md:w-1/2">
 			<enhanced:img src={HeroImage} alt="Tech Club Hero" class="rounded-lg shadow-lg" />

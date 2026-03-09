@@ -2,12 +2,12 @@
 	import Nav from './header/Nav.svelte';
 	import { MediaQuery } from "svelte/reactivity";
 	import MobileNav from './header/MobileNav.svelte';
-	const isDesktop = new MediaQuery('(min-width: 768px)');
+	const isDesktop = new MediaQuery('(min-width: 768px)', true);
 </script>
 
 <nav class="bg-primary p-4 text-primary-foreground">
 	<div class="container mx-auto flex items-center justify-between">
-		<div class="w-[150px]">
+		<div class="w-[120px]">
 			<a href="/">
 				<img src="/logo-white.svg" alt="Nova Tech Club Logo" />
 			</a>

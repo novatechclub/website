@@ -1,0 +1,8 @@
+packages:
+  - '.'
+
+onlyBuiltDependencies:
+  - '@sveltejs/kit'
+  - esbuild
+  - sharp
+  - workerd
